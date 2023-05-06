@@ -1,0 +1,1058 @@
+﻿
+<html>
+<head>  
+</head>
+<body style="background-color:lightgray;">
+     <div class="row col-md-12 col-sm-12">
+        <div class="col-md-6 col-sm-6" style="background-color:darkgrey; height:24px;">
+            <span class="Pagetitle" id="headtitle">Sub Contractor Creation Request</span>
+            <span class="arrowred" style="margin-right:-23px ; margin-top:4px"></span>
+            <span class="arrowyellow" style="margin-right:-19px ; margin-top:4px"></span>
+            <span class="arrowred" style="margin-right:-15px ; margin-top:4px"></span>
+        </div>
+        <div class="col-md-6 col-sm-6" style="text-align:end;margin-top:2px;">
+            <div class="bt">
+                  <button type="button" id="btnAddSC" class="btn btn-outline-success" title="Add"><i class="fa fa-plus"></i></button>
+                   <button type="button" class="btn btn-outline-info" title="Save"> <i class="fa fa-save"></i></button>
+                   <button type="button" class="btn btn-outline-secondary" title="Refresh"> <i class="fa fa-refresh"></i></button>
+                   <button type="button" id="btnlistSC" class="btn btn-outline-success" title="Pending SC"><i class="fa fa-pending"></i></button>
+                   <button type="button" id="btnpedSC" class="btn btn-outline-success"  title="list"><i class="fa fa-list"></i></button>
+            </div>
+        </div>
+        </div>
+                         <div class="container-style">
+                        <div class="row" style="margin-top:5px;">
+                            <div class="col-md-2 col-sm-2">
+                                <span>
+                                    SC Reg No
+                                    <input type="text" class="form-control form-text" id="SCRegNo"/>
+                                </span>
+                            </div>
+
+                            <div class="col-md-8 col-sm-8">
+                                <span>
+                                    SC Name*
+                                    <input type="text" class="form-control form-text" id="SCName"  placeholder="Sub-Contractor Name" />
+                                </span>
+                            </div>
+
+                            <div class="col-md-2 col-sm-2">
+                                <span>
+                                    Company Type*
+                                    <select class="form-control form-text" id="Company" >
+                                        <option>--Select--</option>
+                                     @foreach(var comp in ViewBag.compty)
+                                    {
+                                      <option value="@comp.CtmId">@comp.CtmDesc</option>
+                                    }
+                                    </select>
+                                 
+
+                                </span>
+                            </div>                
+                        </div>                  
+             
+ 
+        <div class="tabset" style="margin-top:10px;">
+            <!-- Tab 1 -->
+            <input type="radio" name="tabset" id="tab1" aria-controls="basic" checked>
+            <label for="tab1">Address Details</label>
+            <!-- Tab 2 -->
+            <input type="radio" name="tabset" id="tab2" aria-controls="statutory">
+            <label for="tab2">Statutory Details</label>
+            <!-- Tab 3 -->
+            <input type="radio" name="tabset" id="tab3" aria-controls="bank">
+            <label for="tab3">Bank Details / TurnOver</label>
+            <!-- Tab 4 -->
+            <input type="radio" name="tabset" id="tab4" aria-controls="equip">
+            <label for="tab4">Equipment</label>
+            <!-- Tab 5 -->
+            <input type="radio" name="tabset" id="tab5" aria-controls="associ">
+            <label for="tab5">Associate Company</label>
+            <!-- Tab 6 -->
+            <input type="radio" name="tabset" id="tab6" aria-controls="exp">
+            <label for="tab6">Experience</label>
+            <!-- Tab 7 -->
+            <input type="radio" name="tabset" id="tab7" aria-controls="attach">
+            <label for="tab7">Attachment</label>
+
+            <div class="tab-panels">      
+                <div id="basic" class="tab-panel">
+                    <div class="row" style="margin-top:-25px;">               
+                            <div class="col-md-3 col-sm-3">
+                                <span>
+                                    Address Line 1*
+                                    <input type="text"  name="Address1" class="form-control form-text" id="Add" />
+                                </span>
+                            </div>
+
+                            <div class="col-md-3 col-sm-3">
+                                <span>
+                                    Address Line 2
+                                    <input type="text" class="form-control form-text" id="Address2" name="Addres2" />
+                                </span>
+                            </div>
+
+                            <div class="col-md-3 col-sm-3">
+                                <span>
+                                    Address Line 3
+                                    <input type="text" class="form-control form-text" id="Address3" name="Addres3" />
+                                </span>
+                            </div>
+
+                            <div class="col-md-3 col-sm-3">
+                                <span>
+                                    City/Tehsil*
+                                    <input type="text" class="form-control form-text" id="City" name="City/Tehsil" />
+                                </span>
+                            </div>                   
+                    </div>
+                    <div class="clearfix"></div>
+                    <div class="row" style="margin-top:5px">
+                            <div class="col-md-1 col-sm-1 ">
+                                <span>
+                                    Country*
+                                    <select id="Option" class="form-control  form-text"  name="Country">
+                                        <option value="India">India</option>
+                                    </select>
+                                </span>
+                            </div>
+
+                            <div class="col-md-2 col-sm-2">
+                                <span>
+                                    Pincode*
+                                    <input type="text" class="form-control form-text" id="Pincode"  />
+                                </span>
+                            </div>
+
+                            <div class="col-md-3 col-sm-3">
+                                <span>
+                                    Phone No
+                                    <input type="text" class="form-control  form-text" id="Phone" name="Phone NO" />
+                                </span>
+                            </div>
+
+                            <div class="col-md-3 col-sm-3 ">
+                                <span>
+                                    Fax No
+                                    <input type="text" class="form-control  form-text" id="fax" name="Fax No" />
+                                </span>
+                            </div>
+
+                            <div class="col-md-3 col-sm-3 ">
+                                <span>
+                                    Name of Contact person
+                                    <input type="text" class="form-control form-text" id="contper" />
+                                </span>
+                            </div>
+                    </div>
+                    <div class="clearfix">
+                    </div>
+                    <div class="row " style="margin-top:5px">
+                            <div class="col-md-3 col-sm-3">
+                                <span>
+                                    Designation 
+                                    <input type="text" class="form-control form-text" id="designat" name="Designation" />
+                                </span>
+                            </div>
+
+                            <div class="col-md-3 col-sm-3">
+                                <span>
+                                    Mobile No* 
+                                    <input type="text" class="form-control  form-text" id="mobile" name="Mobile No" />
+                                </span>
+                            </div>
+                            <div class="col-md-3 col-sm-3">
+                                <span>
+                                    Email Id 
+                                    <input type="text" class="form-control form-text" id="emails" name="Email Id" />
+                                </span>
+                            </div>
+
+                            <div class="col-md-3 col-sm-3" style="padding-top:20px">
+
+                                <span>
+                                 @*<input type="button" id="addattch" onclick="AddAddress();" value="Add"/>*@
+                             <button type="button" class="btn btn-success "id="add" onclick="AddAddress();"><i class="far fa-edit"></i>Add</button>
+                         <button type="button" class="btn btn-primary "id="update" disabled ><i class="far fa-edit"></i>Update</button>
+
+                                </span>
+                            </div>
+                    </div>
+                    
+                    <div class="clearfix"></div>
+                                    
+                   <div class="container-fluid" style="margin-top:5px ; padding: 5px">
+                      <div id="address" class="col-md-12">
+                     @*  @Html.Partial("PartialAddress")*@
+                       </div>
+                     @* <table id="table1" class="table-bordered tabletable-responsive-md" style="width:100%">
+                           <thead>   
+                             
+                               <tr>
+                                        <th>Address Line 1</th>
+                                       <th style="display:none">Address Line 2</th>
+                                        <th style="display:none">Address Line 3</th>
+                                         <th>City</th>
+                                       <th style="display:none">Country</th>
+                                        <th>Pincode</th>
+                                        <th>PhoneNo</th> 
+                                       <th style="display:none">FaxNo </th>
+                                        <th>CntPerson</th> 
+                                         <th style="display:none">Desiganation</th> 
+                                          <th style="display:none">MobileNo</th> 
+                                           <th>EmailId</th> 
+                                           <th>Action</th> 
+                               </tr>
+                           </thead>
+                           <tbody>
+                             @foreach (var iteam in Model)
+                              {   
+                               <tr>
+                               <td>@iteam.SCAdd1</td>
+                              <td style="display:none">@iteam.SCAdd2</td>
+                              <td style="display:none">@iteam.SCAdd3</td>
+                               <td>@iteam.City</td>
+                              <td style="display:none" >@iteam.Country</td>
+                              <td>@iteam.Pincode</td>
+                              <td>@iteam.PhoneNo</td>
+                             <td style="display:none">@iteam.FaxNo</td>
+                              <td>@iteam.CntPerson</td>
+                             <td style="display:none">@iteam.Desiganation</td>
+                              <td style="display:none">@iteam.MobileNo</td>
+                              <td>@iteam.EmailId</td>
+                              <td>
+                                <a href="#" class="selectLink" data-add1="@iteam.SCAdd1" data-aad2="@iteam.SCAdd2" data-add3="@iteam.SCAdd3"
+                                 data-city="@iteam.City" data-country="@iteam.Country" data-Pincode="@iteam.Pincode" data-PhoneNo="@iteam.PhoneNo"
+                                data-FaxNo="@iteam.FaxNo" data-CntPerson="@iteam.CntPerson" 
+                                data-Desiganation="@iteam.Desiganation" data-MobileNo="@iteam.MobileNo" data-EmailId="@iteam.EmailId">Edit</a>
+                            
+                              </td>
+
+                              </tr>
+                              }
+                           </tbody>
+
+                       </table>*@
+                   </div>
+     
+
+
+                </div>
+                <div id="statutory" class="tab-panel">
+
+                    <div class="row" style="margin-top:-25px;">                      
+                            <div class="col-md-3 col-sm-3">
+                                <span>
+                                    Unique CIN/LLPIN No.
+                                    <input type="text" id="txtuni" class="form-control form-text" style="align-content:center" />
+                                </span>
+                            </div>
+                            <div class="col-md-3 col-sm-3 ">
+                                <span>
+                                    PAN No.*
+                                    <input type="text" id="panno"class="form-control form-text" style="align-content:center" />
+                                </span>
+                            </div>
+                            <div class="col-md-3 col-sm-3">
+                                <span>
+                                    GST Registeration Status
+                                    <select typeof="Option" class="form-control form-text" id="Gststatus">
+                                   <option value="">--Select--</option>
+                                    @foreach(var state in ViewBag.GST){
+                                   <option value="@state.ParamValueTxt">@state.ParamValDispTxt</option>
+                                    }                              
+                                    </select>
+                                </span>
+                            </div>
+                            <div class="col-md-3 col-sm-3">
+                                <span>
+                                    GST Regd State*
+                                    <select class="form-control form-text" id="state">
+                                    <option value="">--Select--</option>
+                                    @foreach(var state in ViewBag.statelist){
+                                   <option value="@state.StId">@state.StName</option>
+                                    }
+                                    </select>
+                                </span>
+                            </div>
+                    </div>
+
+                    <div class="row" style="margin-top:5px">
+                            <div class="col-md-2 col-sm-2">
+                                <span>
+                                    GSTIN No.
+                                    <input type="text" id="gstno"class="form-control form-text" style="align-content:center" />
+                                </span>
+                            </div>
+
+                            <div class="col-md-2 col-sm-2">
+                                MSME Status
+                                <select typeof="Option" class="form-control form-text" id="msme" style="align-content:center ">
+                                 <option value="">--Select--</option>
+                                    @foreach(var state in ViewBag.msme){
+                                   <option value="@state.ParamValueTxt">@state.ParamValDispTxt</option>
+                                    }
+                                </select>
+                            </div>
+                            <div class="col-md-2 col-sm-2 ">
+                                <span>
+                                    Type of Enterprise                                 
+                                    <select typeof="Option" class="form-control form-text" >
+                                    <option value="">--Select--</option>
+                                    @foreach(var state in ViewBag.Enterprise){
+                                   <option value="@state.ParamValueTxt">@state.ParamValDispTxt</option>
+                                    }
+                                    </select>
+                                </span>
+                            </div>
+                            <div class="col-md-2 col-sm-2">
+                                <span>
+                                    Regn. Certificate No
+                                    <input type="text" id="regno" class="form-control form-text" style="align-content:center" />
+                                </span>
+                            </div>
+
+                            <div class="col-md-2 col-sm-2">
+                                <span>
+                                    Financial Year
+                                    <input type="text" id="finan" class="form-control form-text" style="align-content:center" />
+                                </span>
+                            </div>
+                            <div class="col-md-2 col-sm-2">
+                                <span>
+                                    Turn Over(Rs.)
+                                    <input type="text" id="turnover" class="form-control form-text" style="align-content:center" />
+                                </span>
+                            </div>
+                      
+                    </div>
+                    <div class="clearfix"></div>
+
+                    <div class="row"style="margin-top:5px">
+                     
+                            <div class="col-md-3 col-sm-3">
+                                <span>
+                                    PF Regd. No.
+                                    <input type="text" class="form-control form-text" id="pfno" style="align-content:center" />
+                                </span>
+                            </div>
+                            <div class="col-md-3 col-sm-3">
+                                <span>
+                                    ESIC Regn. No.
+                                    <input type="text" class="form-control form-text" id="esicno" style="align-content:center" />
+                                </span>
+                            </div>
+
+                      
+                    </div>
+
+                </div>
+                <div id="bank" class="tab-panel">
+                   
+                    <div class="row"style="margin-top:-25px;">                  
+                        <div class="col-md-3 col-sm-3">
+                            <span>
+                                Site
+                                <select typeof="Option" class="form-control form-text">                                 
+                                   <option value="">--Select--</option>
+                                    @foreach(var state in ViewBag.Site){
+                                   <option value="@state.ParamValueTxt">@state.ParamValDispTxt</option>
+                                    }
+                                </select>
+                            </Span>
+                        </div>
+                        <div class="col-md-4 col-sm-4">
+                            <span>
+                                Bank Name* 
+                                <input type="text" id="banks"class="form-control  form-text" style="align-content:center" />
+                            </span>
+                        </div>
+                        <div class="col-md-3 col-sm-3">
+                            <span>
+                                A/C No* 
+                                <input type="text" class="form-control  form-text" id="ACno" style="align-content:center" maxlength="14" />
+                            </span>
+                        </div>
+                        <div class="col-md-2 col-sm-2">
+                            <span>
+                                IFSC Code* 
+                                <input type="text" class="form-control  form-text" id="Ifsc" style="align-content:center" maxlength="11" />
+                            </span>
+                        </div>
+                     
+                        </div>
+                        <div class="clearfix"></div>
+                        
+                          <div class="break" style="margin-top:10px;margin-top:10px ;background-color:lightcyan">
+                            <span>
+                                TurnOver
+                           </span>
+                         </div>
+
+                        <div class="row"style="margin-top:5px">
+                        <div class="col-md-2 col-sm-2 ">
+                            <span>
+                                Exp. In Industry
+                                <input type="text" class="form-control  form-text" style="align-content:center" />
+                            </span>
+                        </div>
+                        <div class="col-md-4 col-sm-4">
+                            <span>
+                                Referred By
+                                <input type="text" class="form-control  form-text" style="align-content:center" />
+                            </span>
+                        </div>
+                        <div class="col-md-6 col-sm-6">
+                            <span>
+                                Spl. Notes (if any)
+                                <input type="text" class="form-control  form-text" id="A/Cno." style="align-content:center" maxlength="14" />
+                            </span>
+                        </div>
+                    
+                    </div>
+                    <div class="clearfix"></div>
+
+                    <div class="row"style="margin-top:5px">     
+                        <div class="col-md-2 col-sm-2">
+                            <span>
+                                Year 1
+                                <input type="text" id="year1" class="form-control  form-text" style="align-content:center" />
+                            </span>
+                        </div>
+                        <div class="col-md-2 col-sm-2">
+                            <span>
+                                Turnover
+                                <input type="text" id="turnover" class="form-control  form-text" style="align-content:center" />
+                            </span>
+                        </div>
+                        <div class="col-md-2 col-sm-2">
+                            <span>
+                                Year 2
+                                <input type="text" id="Year 2" class="form-control  form-text" style="align-content:center" maxlength="14" />
+                            </span>
+                        </div>
+                        <div class="col-md-2 col-sm-2 ">
+                            <span>
+                                Turnover
+                                <input type="text" id=" Turnover" class="form-control form-text" style="align-content:center" />
+                            </span>
+                        </div>
+                        <div class="col-md-2 col-sm-2">
+                            <span>
+                                Year 3
+                                <input type="text" id="Year3" class="form-control  form-text" style="align-content:center" maxlength="14" />
+                            </span>
+                        </div>
+                        <div class="col-md-2 col-sm-2">
+                            <span>
+                                Turnover
+                                <input type="text" id=" Turnover" class="form-control form-text" style="align-content:center" />
+                            </span>
+                        </div>
+                   
+                </div>
+                <div class="clearfix"></div>             
+                </div>
+                <div id="equip" class="tab-panel">
+                    <div class="row"style="margin-top:-25px;">
+                      <div class="col-md-3 col-sm-3">
+                                <span>          
+                                Equipment Description
+                             <input type="text" id="equipdesc" class="form-control form-text">
+                                </span>
+                                  </div>
+
+                      <div class="col-md-2  col-sm-2">
+                           <span>          
+                              Make
+                             <input type="text" id="make" class="form-control form-text">
+                                </span>
+                                  </div>
+                                
+                      <div class="col-md-2 col-sm-2">
+                           <span>  
+                              Model
+                             <input type="text" id="model" class="form-control form-text">
+                                </span>
+                                  </div>
+
+                           <div class="col-md-1 col-sm-1">
+                           <span>  
+                              Number 
+                             <input type="text" id="number" class="form-control form-text">
+                                </span>
+                                  </div>
+
+                        <div class="col-md-1 col-sm-1"></div>
+                        <div class="col-md-3 col-sm-3" style="padding-top:25px">
+                       
+                      
+                         <button type="button" class="btn btn-success" onclick="Addequipment();" id="equiadd"><i class="fa fa-add"></i>Add</button>                     
+                         <button type="button" class="btn btn-primary" disabled id="equiupdate"><i class="far fa-edit"></i>Update</button>
+                                       
+                        
+                        </div>
+                          </div>
+
+                           <div class="clearfix"></div>
+                            
+                         <div class="container-fluid" style="margin-top:5px;padding:5px;">
+                           <div id="PartialEquipment" class="col-md-12"></div>
+
+@*                            
+                            <table id="table2" class="table-bordered table-responsive-md">
+                                <thead>                               
+                                    <tr>
+                                      
+                                        <th>Sr.No</th>
+                                        <th style="display:none">Sr.No</th>
+                                        <th style="display:none">Sr.No</th>
+                                        <th>Equipment Description</th>
+                                        <th>Make</th>
+                                        <th>Model</th>
+                                        <th>No. Of Equipment</th>
+                                         <th>AddedBy</th>
+                                          <th style="display:none">AddedOn</th>
+                                        <th style="display:none">Action</th>
+                                    </tr>
+                                    </thead>
+                                <tbody> 
+                                   @foreach (var iteam in Model.Equip)
+                                    { 
+                                    <tr>
+                                       <td>@iteam.SCEquipId</td>
+                                        <td style="display:none">@iteam.ScTmpId</td>
+                                         <td style="display:none" >@iteam.ScRegnNo</td>
+                                        <td>@iteam.ScEquipDesc</td>
+                                        <td>@iteam.ScEquipMake</td>
+                                        <td>@iteam.ScEquipModel</td>
+                                        <td>@iteam.ScEquipNo</td>
+                                        <td style="display:none" >@iteam.AddedBy</td>
+                                        <td style="display:none" >@iteam</td>
+
+                                        <td>
+                                         <a href="#" class="selectLink" data-ScTmpId="@iteam.ScTmpId"  data-Equip="@iteam.ScEquipDesc"  data-make="@iteam.ScEquipMake"
+                                          data-model="@iteam.ScEquipModel"  data-noquip="@iteam.ScEquipNo" >Edit</a>
+                                            
+                                        </td>
+                                    </tr>
+                                    }
+                                </tbody>
+                            </table>*@
+                        </div>
+                </div>
+                <div id="associ" class="tab-panel">                    
+                    <div class="row"style="margin-top:-25px;">                 
+                            <div class="col-md-8 col-sm-8">
+                           <span>  
+                              Associate Company Name
+                             <input type="text" id="assoname" class="form-control form-text">
+                                </span>
+                                  </div>
+                         <div class="col-md-1 col-sm-1"></div>
+                        <div class="col-md-3 col-sm-3"style="padding-top:25px">
+
+                    
+                        <button type="button" class="btn btn-success" id="assoadd" onclick="Assocompy();"><i class="fa fa-add"></i>Add</button>          
+                        <button type="button" class="btn btn-primary"  id="assoedit" disabled ><i class="far fa-edit"></i>Update</button>
+                 
+                 
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                                                                                        
+                         <div class="container-fluid" style="margin-top:5px;padding:5px;">
+                              <div id="PartialAssoci" class="col-md-12">
+
+                             </div>
+                             
+                             
+                            @*<table id="table3" class="table-bordered table-responsive-md">
+                                <thead>
+                                    <tr>
+                                       
+                                        <th>Name of Company </th>
+                                         <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td></td>
+                                        <td>
+                                            <a href="">Edit</a>
+                                            <a href="">Delete</a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>*@
+
+                        </div>
+                </div>
+                <div id="exp" class="tab-panel">                
+                    <div class="row"style="margin-top:-25px;">
+                       
+                             <div class="col-md-4 col-sm-4">
+                                <span>           
+                              Project Site
+                             <input type="text" id="site" class="form-control form-text">
+                                </span>
+                                  </div>
+
+                      <div class="col-md-4 col-sm-4">
+                           <span>          
+                              Project Name
+                             <input type="text"  id="projname" class="form-control form-text">
+                                </span>
+                                  </div>
+
+                                  
+                      <div class="col-md-1 col-sm-1">
+                           <span>          
+                             Wo Value
+                             <input type="text" id="wovalue" name='value' class="form-control form-text">
+                                </span>
+                                  </div>
+
+                                  
+                         <div class="col-md-3 col-sm-3" style="padding-top:25px; text-align:start">
+                                            
+                        <button type="button" class="btn btn-success" id="expadd" onclick="Experience();"><i class="fa fa-add"></i>Add</button>          
+                        <button type="button" class="btn btn-primary"  id="expupdate" disabled><i class="far fa-edit"></i>Update</button>
+                         </div>
+                         </div>                      
+                   <div class="row" style="margin-top:5px">
+                            <div class="col-md-4 col-sm-4">
+                                <span>
+                                    Project Client
+                          <input type="text" id="client" class="form-control form-text"></span>
+                            </div> 
+
+                              <div class="col-md-4 col-sm-4">
+                                <span>
+                                   State
+                          <input type="text" id="state" class="form-control form-text"></span>
+                            </div> 
+
+                            <div class="col-md-4 col-sm-4">
+                           
+                            </div>
+                       </div>
+
+                       <div class="row" style="margin-top:5px">
+                           <div class="col-md-8 col-sm-8">
+                               <span>
+                                    WO Description
+                          <textarea maxlength="500" rows="2" cols="30" class="form-control form-text" id="wodesc" style="resize:none" form="WOdescription"></textarea>                  
+                               </span>
+                           </div>
+                       </div>
+                  <div class="clearfix"> </div>
+                                
+                   <div class="container-fluid" style="margin-top:5px ; padding: 5px">
+                       <div id="PartialExp" class="col-md-12">
+
+                             </div>
+                       @*<table id="table4" class="table-bordered tabletable-responsive-md">
+                           <thead>
+                              
+                               <tr>
+                               <th>Project Site</th>
+                               <th>Project Name</th>
+                               <th>Client Name</th>
+                               <th> State</th>
+                               <th>WO Description</th>
+                               <th>WO Value</th>
+                                <th>Action</th>
+                               </tr>
+                           </thead>
+
+                           <tbody>
+                           
+                               <tr>                           
+                               <td></td>
+                               <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td>
+                                  <a href="">Edit</a>
+                                  <a href="">Delete</a>
+                              </td>
+
+                              </tr>
+                              
+                           </tbody>
+
+                       </table>*@
+                   </div>
+                </div>
+                   <div id="attach" class="tab-panel">
+                        <div class="row" style="margin-top:-25px;">
+                            <div class="col-md-2 col-sm-2">
+                                <span>
+                                    File Name
+                                    <select ID="fileNameInput" class="form-control form-text">
+                                      <option value="">--Select--</option>
+                                    @foreach(var state in ViewBag.AttachFile){
+                                   <option >@state.ParamValDispTxt</option>
+                                    }
+                                   </select>
+                           
+                                </span>
+                            </div>
+                            <div class="col-md-2 col-sm-2">
+
+                                <span>
+                                    File Attach
+                                    <input type="file" ID="pdfInput" class="form-control form-text" accept=".pdf" />
+                                </span>
+                            </div>
+                            <div class="col-md-2 col-sm-2">
+                                <span>
+                                    <br />
+                                    <input type="button" ID="uploadButton" class="form-control form-text" value="Add Attcah" style="color:green" />
+                                </span>
+                            </div>
+                        </div>
+                        <hr />
+                          <div class="row" style="margin-top:5px;">
+                            <div class="col-md-12 col-sm-12">
+                                <table id="tblAddAtth" class="table-bordered table-responsive-md">
+                                    <thead>
+                                        <tr>
+                                            <th width="90%">File Name</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var pdfFile in Model)
+                                        {
+                                            <tr>
+                                                <td width="90%" >@pdfFile.FileName</td>
+                                                <td><a href="@Url.Action("View", "SC", new { fileName = pdfFile.FileName })" target="_blank">View</a></td>
+                                            </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>                               
+                </div>
+            </div>
+        </div>
+    </div>
+
+         <div id="btnpedSCopen" class="modal">
+            <!-- Modal content -->
+            <div class="modal-content">
+                <span>List of Registered Sub Contractors</span>
+                    <span  class="close" id="btnpedSCclose">&times;</span>
+                <div class="row">
+                    <div class="col-md-10 col-sm-10">
+                        <span>
+                            Search Name
+                            <input type="text" class="form-control form-text" />
+                        </span>
+                    </div>
+                     <div class="col-md-2 col-sm-2" style="padding-top:27px">
+                     <span>          
+                     <button  class="btn btn-outline-success" id="Mstadd" ><i class="fa fa-add"></i>Search</button>
+                     </span>
+                    </div>
+                </div>
+               
+                <div class="container-fluid" style="margin-top:5px;">
+                     <div id="partilaSCmst" class="col-md-12"></div>
+                 @*           <table id="table6" class="table-bordered table-responsive-md">
+                                <thead>
+                                    <tr>
+                                        <th>SC Reg No.</th>
+                                        <th>SC Name</th>
+                                        <th>GST Status</th>
+                                        <th>SC PAN No</th>
+                                        <th>SC GST No </th>
+                                        <th></th>
+                                                                   
+                                    </tr>
+                                </thead>
+                                <tbody>                                    
+                                    <tr>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td>
+                                          <a href="">Edit</a>
+                                            <a href="">Delete</a>
+                                        </td>                                    
+                                    </tr>
+                                    
+                                </tbody>
+                            </table>*@
+                 </div>
+            </div>
+        </div>
+         <div id="btnSClistOpen" class="modal">
+            <!-- Modal content -->
+            <div class="modal-content"> 
+                <centre>List of Pending Sub Contractors for Verification </centre>
+                    <span  class="close" id="btnSClistClose">&times;</span>
+                <div class="row">
+                    <div class="col-md-10 col-sm-10">
+                        <span>
+                            Search Name
+                            <input type="text" class="form-control form-text" />
+                        </span>
+                    </div>
+                    <div class="col-md-2 col-sm-2" style="padding-top:27px">
+                    <span>
+                         <button type="button" class="btn btn-outline-success" id="Pendingsc" ><i class="fa fa-add"></i>Search</button>
+                    </span>
+                    </div>
+                </div>
+                <div class="container-fluid" style="margin-top:5px;">
+                    <div id="pendingsc" class="col-md-12"></div>
+             
+                         @*   <table id="table5" class="table-bordered table-responsive-md">
+                                <thead>                      
+                        <tr>
+                                        <th>Site</th>
+                                        <th>SC Name</th>
+                                        <th>GST Status</th>
+                                        <th>PAN No. </th>
+                                        <th>Status</th>
+                                        <th>Action</th>                               
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                     @foreach (var iteam in Model.mst) 
+                                     {
+                                    <tr>                                    
+                                        <td>@iteam.ReqSite</td>
+                                        <td>@iteam.SCName</td>
+                                        <td>@iteam.SCGST</td>
+                                        <td>@iteam.SCPAN</td>
+                                        <td>@iteam.SCStatus</td>
+                                        <td>
+                                         <a href="#" class="select" data-reg="@iteam.RegisterNo" data-finan="@iteam.FinanceYear" data-turn="@iteam.MSMETurnOver"
+                                         data-bank="@iteam.SCBANK" data-ac ="@iteam.SCBANKAcNo" data-ifsc ="@iteam.SCBANKIFSC" data-name="@iteam.SCName" data-pan="@iteam.SCPAN"
+                                         data-gst ="@iteam.SCGST" data-add1="@iteam.SCAdd1">Edit</a>
+
+                                        </td>                                    
+                                    </tr>
+                                    }
+                                </tbody>
+                            </table>*@
+                 </div> 
+            
+            </div>
+        </div>
+</body>
+</html>
+<script>
+    $('#tblAddAtth').DataTable();
+    $('#uploadButton').click(function () {
+
+        var files = $('#pdfInput').prop('files');
+        if (files.length > 0) {
+            var file = files[0];
+            var fileNameInput = $('#fileNameInput');
+            var fileName = fileNameInput.val() || file.name;
+            var formData = new FormData();
+            formData.append('file', file);
+            formData.append('fileName', fileName);
+            $.ajax({
+                url: '@Url.Action("Upload", "SC")',
+                method: 'POST',
+                data: formData,
+                processData: false,
+                contentType: false,
+                success: function () {
+                    var row = $('<tr></tr>');
+                    var fileNameCell = $('<td></td>').text(fileName);
+                    var viewLink = $('<a></a>').attr('href', '@Url.Action("View", "SC")?fileName=' + fileName).attr('target', '_blank').text('View');
+                    var viewButton = $('<td></td>').append(viewLink);
+                    row.append(fileNameCell).append(viewButton);
+                    $('#tblAddAtth tbody').append(row);
+                    fileNameInput.val('');
+                },
+            });
+            $(".odd").hide();
+            $("#pdfInput").val("");
+        }
+    });
+</script>
+<script type="text/javascript">
+
+        function AddAddress(){
+
+            var add1 = $("#Address1").val();
+            var add2 = $("#Address2").val();
+            var add3 = $("#Address3").val();
+            var city = $("#City").val();
+            var county = $("#Country").val();
+            var code = $("#Pincode").val();
+            var phone = $("#Phone").val();
+            var fax = $("#fax").val();
+            var contact = $("#contper").val();
+            var desgn = $("#designat").val();
+            var mbl = $("#mobile").val();
+            var emal = $("#emails").val();
+            $.ajax({
+                type: "GET",
+                url: "SC/AddScAdd",
+                data: { Address1: add1, Address2: add2, Address3: add3, City: city, Country: county, Pincode: code, Phone: phone,
+                        Fax: fax ,namecntpern : contact ,design : desgn , Mobile : mbl, Emails:emal },
+                    cache: false,
+                    success: function (data) { 
+                    $("#Address1").val('');
+                    $("#Address2").val('');
+                    $("#Address3").val('');
+                    $("#City").val('');
+                    $("#Country").val('');
+                    $("#Pincode").val('');
+                    $("#Phone").val('');
+                    $("#fax").val('');
+                    $("#contper").val('');
+                    $("#designat").val('');
+                    $("#mobile").val('');
+                    $("#emails").val('');
+                    $('#address').html(data);
+                },
+                    error: function (XMLHttpRequest, textStatus, errorThrown) {
+                        alert(textStatus);
+                    },
+            });
+        }
+    // for Experience
+    function Experience(){
+       
+        var site = $("#site").val();
+        var pname = $("#projname").val();
+        var value = $("#wovalue").val();
+        var client = $("#client").val();
+        var state = $("#state").val();
+        var desc = $("#wodesc").val();
+        $.ajax({
+            type: "GET",
+            url: "SC/experiencesc",
+            data: { Site: site, Projname: pname, Value: value, Client: client,State: state, Wodes: desc},
+            cache: false,
+            success: function (data) {                  
+                $("#site").val('');
+                $("#projname").val('');
+                $("#wovalue").val('');
+                $("#client").val('');
+                $("#state").val('');
+                $("#wodesc").val('');
+
+                                              
+                $('#PartialExp').html(data);
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                alert(textStatus);
+            }
+        });
+    }
+    // for Associate company
+    function Assocompy(){
+      var asso = $("#assoname").val()      
+      $.ajax({
+          type: "GET",
+          url: "SC/Assocompy",
+          data:{Asscompany :asso},
+          cache: false,
+          success: function (data) { 
+                $ ("#assoname").val('');
+                $('#PartialAssoci').html(data);
+          },
+          error: function (XMLHttpRequest, textStatus, errorThrown) {
+              alert(textStatus);
+          }
+      });
+   }
+    // for Equipment
+   function Addequipment(){
+      var add1 = $("#equipdesc").val();
+      var add2 = $("#make").val();
+      var add3 = $("#model").val();
+      var city = $("#number").val();
+      
+      $.ajax({
+          type: "GET",
+          url: "SC/Equipsc",
+          data: { ScEquipDes: add1, ScEquipMake: add2, ScEquipModel: add3, ScEquipNo: city },
+          cache: false,
+          success: function (data) { 
+              $("#equipdesc").val('');
+              $("#make").val('');
+              $("#model").val('');
+              $("#number").val('');
+                                            
+              $('#PartialEquipment').html(data);
+          },
+          error: function (XMLHttpRequest, textStatus, errorThrown) {
+              alert(textStatus);
+          }
+      });
+   }
+   
+    $(document).ready(function () {
+        $('#table1').DataTable();
+        $('#table2').DataTable();
+        $('#table3').DataTable();
+        $('#table4').DataTable();
+        $('#table5').DataTable();
+        $('#table6').DataTable();
+    });
+    
+     // for data send into textbox
+    $(".Pendingsc").click(function(){
+    
+        var pan = $(this).data("reg");
+        var fin = $(this).data("finan");
+        var turn = $(this).data("turn");
+        var bank = $(this).data("bank");
+        var ac = $(this).data("ac");
+        var ifsc = $(this).data("ifsc");
+        var name = $(this).data("name");
+        var pan = $(this).data("pan");
+        var gst = $(this).data("gst");
+        var gst = $(this).data("add1");
+
+        $("#panno").val(pan);
+        $("#finan").val(fin);
+        $("#turnover").val(turn);
+        $("#banks").val(bank);
+        $("#ACno").val(ac);
+        $("#Ifsc").val(ifsc);
+        $("#SCName").val(name);
+        $("#panno").val(pan);
+        $("#gstno").val(gst);
+        $("#go").val(gst);
+
+      var Addmodal = document.getElementById("btnSClistOpen");
+            Addmodal.style.display = "block";
+
+    });
+
+    $("#Pendingsc").click(function () {
+        $.get("/SC/PendingSC", function (data) {
+            $("#pendingsc").html(data);
+        });
+    });
+
+
+
+
+</script>
+<script>
+        
+    $("#Mstadd").click(function () {
+        $.get("/SC/PartialScmst", function (data) {
+            $("#partilaSCmst").html(data);
+        });
+    });
+</script>
